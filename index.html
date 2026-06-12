@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroPegada | Eficiência Hídrica e Carbônica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌱 AgroPegada</h1>
+            <p>Calcule o impacto ambiental da sua propriedade rural</p>
+        </header>
+
+        <form id="agroForm">
+            <!-- ETAPA 1 -->
+            <div class="step active" data-step="1">
+                <h2>📊 Dados da Propriedade</h2>
+                <div class="form-group">
+                    <label for="area">Área cultivada (hectares):</label>
+                    <input type="number" id="area" name="area" step="0.1" placeholder="Ex: 50.5">
+                    <span class="error-message" id="error-area"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="horasTrator">Horas de uso do trator por mês:</label>
+                    <input type="number" id="horasTrator" name="horasTrator" step="1" placeholder="Ex: 120">
+                    <span class="error-message" id="error-horasTrator"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipoIrrigacao">Tipo de irrigação:</label>
+                    <select id="tipoIrrigacao" name="tipoIrrigacao">
+                        <option value="">Selecione</option>
+                        <option value="aspersao">Aspersão</option>
+                        <option value="gotejamento">Gotejamento</option>
+                        <option value="sulco">Sulco</option>
+                        <option value="nenhuma">Nenhuma</option>
+                    </select>
+                    <span class="error-message" id="error-irrigacao"></span>
+                </div>
+
+                <button type="button" class="btn-next">Próximo →</button>
+            </div>
+
+            <!-- ETAPA 2 -->
+            <div class="step" data-step="2">
+                <h2>⚡ Consumo e Produção</h2>
+                <div class="form-group">
+                    <label for="energia">Consumo de energia elétrica (kWh/mês):</label>
+                    <input type="number" id="energia" name="energia" step="1" placeholder="Ex: 500">
+                    <span class="error-message" id="error-energia"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="combustivel">Consumo de combustível (litros/mês):</label>
+                    <input type="number" id="combustivel" name="combustivel" step="1" placeholder="Ex: 300">
+                    <span class="error-message" id="error-combustivel"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="producao">Produção média mensal (kg):</label>
+                    <input type="number" id="producao" name="producao" step="1" placeholder="Ex: 5000">
+                    <span class="error-message" id="error-producao"></span>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn-prev">← Voltar</button>
+                    <button type="button" class="btn-calculate">Calcular Impacto</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- RELATÓRIO (será preenchido via JS) -->
+        <div id="relatorioContainer" style="display: none;"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
